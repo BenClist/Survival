@@ -13,7 +13,7 @@ public class MeleeSystem : MonoBehaviour {
     Camera FPSCamera;
 
     private TreeHealth treeHealth;
-    private BasicAI basicAI;
+    private AdvancedEnemyAI enemyAI;
 
     private void Update()
     {
@@ -32,7 +32,7 @@ public class MeleeSystem : MonoBehaviour {
                     AttackTree();
                 } else if (hitInfo.collider.tag == "Enemy")
                 {
-                    basicAI = hitInfo.collider.GetComponent<BasicAI>();
+                    enemyAI = hitInfo.collider.GetComponent<AdvancedEnemyAI>();
                     AttackEnemy();
                 }
             }
@@ -50,6 +50,6 @@ public class MeleeSystem : MonoBehaviour {
     private void AttackEnemy()
     {
         int damage = Random.Range(minDamage, maxDamage);
-        basicAI.TakeDamage(damage);
+        enemyAI.TakeDamage(damage);
     }
 }
