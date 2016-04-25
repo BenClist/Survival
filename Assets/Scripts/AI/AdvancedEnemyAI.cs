@@ -30,9 +30,7 @@ public class AdvancedEnemyAI : MonoBehaviour {
 
     private void Update()
     {
-        Vector3 eyePosition = new Vector3(transform.position.x, transform.position.y + eyeHeight, transform.position.z);
-
-        CheckHealth();
+		Vector3 eyePosition = new Vector3(transform.position.x, transform.position.y + eyeHeight, transform.position.z);
 
         thinkTimer -= Time.deltaTime;
         if(thinkTimer <= 0)
@@ -72,6 +70,8 @@ public class AdvancedEnemyAI : MonoBehaviour {
         {
             agent.SetDestination(playerTransform.position);
         }
+
+		CheckHealth();
     }
 
     public void TakeDamage(int damage)
